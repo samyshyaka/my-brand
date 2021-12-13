@@ -15,13 +15,15 @@ function save(id, title, author, text) {
     })
   }
 
-function get() {
+  //read
+
+function read() {
     article_ref.on('value', snapshot => {
         var articles = snapshot.val()
         tableBody.innerHTML = ""
-        for (article in articles){
+        for (let article in articles){
             let tr = `
-                <tr>
+                <tr data-id = '${article}'>
                     <td>${articles[article].id}</td>
                     <td>${articles[article].title}</td>
                     <td>${articles[article].author}</td>
@@ -32,37 +34,53 @@ function get() {
                 </tr>`
             tableBody.innerHTML += tr;
         }
-    })
+        
+        
+        //update
+
+        let editButtons = document.querySelectorAll('.edit');
+        editButtons.forEach(edit => {
+            edit.addEventListener('click', () => {
+                popup.classList.add('active');
+                let articleId = edit.parentElement.parentElement.dataset.id;
+                article_ref.child(articleId).get().then(
+                    (snapshot => {
+                            form.id.value = snapshot.val().id;
+                            form.title.value = snapshot.val().title;
+                            form.author.value = snapshot.val().author;
+                            form.text.value = snapshot.val().text;
+                    })
+                )
+            })
+
+            form.addEventListener('submit', e => {
+                e.preventDefault();
+                let articleId = form.id.value;
+                article_ref.child(articleId).update({
+                    id: form.id.value,
+                    title: form.title.value,
+                    author: form.author.value,
+                    text: form.text.value
+                })
+               
+            })
+            popup.classList.remove('active');
+        })
+
+        //delete
+
+        let deleteButtons = document.querySelectorAll('.delete');
+        deleteButtons.forEach(deleteBtn => {
+            deleteBtn.addEventListener('click', () => {
+                let articleId = deleteBtn.parentElement.parentElement.dataset.id;
+                article_ref.child(articleId).remove()
+            })
+ 
+        })
+    });
 }
 
-get();
-
-function update() {
-    var email = document.getElementById('email').value;
-    var password = document.getElementById('password').value;
-    var username = document.getElementById('username').value;
-    var say_something = document.getElementById('say_something').value;
-    var favorite_food = document.getElementById('favorite_food').value;
-
-    var updates = {
-        email: email,
-        password: password,
-        username: username,
-        say_something: say_something,
-        favorite_food: favorite_food
-    }
-
-    db.ref('users/' + username).update(updates)
-    alert('updated')
-}
-
-function remove() {
-    var username = document.getElementById('username').value;
-
-    db.ref('users/' + username).remove();
-
-    alert('deleted')
-}
+read();
 
 // write data
 
@@ -79,4 +97,5 @@ addArticle.addEventListener('click', () => {
 
 cancel.addEventListener('click', () => {
     popup.classList.remove('active');
+    form.reset();
 })
