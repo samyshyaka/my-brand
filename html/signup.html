@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <a href="#" class="logo"><h2>SD</h2></a>
+        <nav class="navbar">
+            <input type="checkbox" id="tab-nav" class="tab-nav">
+            <label for="tab-nav" class="label">
+                <div class="burger"></div>
+                <div class="burger"></div>
+                <div class="burger"></div>
+            </label>
+            <ul class="nav-content">
+                <li><a href="../index.html#home">Home</a></li>
+                <li><a href="../index.html#about">About</a></li>
+                <li><a href="../index.html#services">Services</a></li>
+                <li><a href="../index.html#projects">Projects</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="../index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section class="login">
+        <h1>Create Account</h1>        
+        <form action="" id="form" novalidate>
+            <div class="form-control">
+                <label>Username</label>
+                <input type="text" placeholder="Username*" id="username">
+                <i class="fa fa-check-circle"></i>
+                <i class="fa fa-exclamation-circle"></i>
+                <small>Error message</small>
+            </div>
+            <div class="form-control">
+                <label>Email</label>
+                <input type="email" placeholder="Email*" id="email">
+                <i class="fa fa-check-circle"></i>
+                <i class="fa fa-exclamation-circle"></i>
+                <small>Error message</small>
+            </div>
+            <div class="form-control">
+                <label>Password</label>
+                <input type="password" placeholder="Password*" id="password">
+                <i class="fa fa-check-circle"></i>
+                <i class="fa fa-exclamation-circle"></i>
+                <small>Error message</small>
+            </div>
+            <div class="form-control">
+                <label>Re-enter password</label>
+                <input type="password" placeholder="Re-enter password*" id="password2">
+                <i class="fa fa-check-circle"></i>
+                <i class="fa fa-exclamation-circle"></i>
+                <small>Error message</small>
+            </div>
+            <input class="submit" type="submit" value="Sign Up">
+            <p>Or Sign up with</p>
+            <a href="">Google</a>
+        </form>
+        <div id="pswd-validation" class="pswd-info hidden">
+            <ul>
+                <h3 class="text-info">Password must contain</h3>
+                <li id="length" class="invalid"><i class="fa fa-times"></i> At least <strong>8 characters</strong></li>
+                <li id="letter" class="invalid"><i class="fa fa-times"></i> At least <strong>one small letter</strong></li>
+                <li id="capital" class="invalid"><i class="fa fa-times"></i> At least <strong>one capital letter</strong></li>
+                <li id="number" class="invalid"><i class="fa fa-times"></i> At least <strong>one number</strong></li>
+                <li id="special-char" class="invalid"><i class="fa fa-times"></i> At least <strong>one special character</strong></li>
+            </ul>
+        </div>
+    </section>
+    <script src="../script/signup.js"></script>
+</body>
+</html>

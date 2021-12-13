@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/blog-dashboard.css">
+    <title>Blog Dashboard</title>
+</head>
+<body>
+    <div class="wrapper">
+        <table id="crud">
+            <caption>Articles</caption>
+            <thead>
+                <tr>
+                    <td>No</td>
+                    <td>Title</td>
+                    <td>Author</td>
+                    <td>Actions</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>
+                        <button class="edit">Edit</button>
+                        <button class="delete">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <button class="add-article">Add Article</button>
+    </div>
+    <div class="popup">
+        <form action="">
+            <input type="number" placeholder="No" name="id">
+            <input type="text" placeholder="Title" name="title">
+            <input type="text" placeholder="Author" name="author">
+            <input type="text" placeholder="Text" name="text">
+            <input type="submit" value="Save">
+            <input type="submit" value="Cancel" id="cancel">
+        </form>
+    </div>
+
+    <script defer src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script defer src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+    <script defer src="../script/firebase-config.js"></script>
+    <script defer src="../script/blog-dashboard.js"></script>
+    
+</body>
+</html>

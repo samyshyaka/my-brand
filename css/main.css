@@ -1,0 +1,726 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: "OpenSans";
+    src: url(fonts/PublicSans-VariableFont_wght.ttf);
+}
+
+@font-face {
+    font-family: "Courgette";
+    src: url(fonts/courgette/Courgette-Regular.ttf);
+}
+
+body {
+    color: white;
+    background-color: rgba(0, 0, 0, 0.931);
+    font-family: "OpenSans";
+    font-size: 18px;
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    position: fixed;
+    top: 0;
+    z-index: 2;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.603);
+}
+
+.logo {
+    font-size: 12px;
+    background-color: rgba(255, 255, 255, 0.082);
+    padding: 0.5rem;
+    text-decoration: none;
+    border-radius: 50%;
+    color: white;
+    margin: 1rem 5rem;
+}
+
+.tab-nav {
+    outline: none;
+    display: none;   
+}
+
+.burger {
+    width: 30px;
+    height: 5px;
+    background-color: white;
+    margin-top: 5px;
+}
+
+.navbar {
+    padding:1.5rem 5rem 1.5rem 31rem;
+}
+
+.label {
+    display: none;
+}
+
+.nav-content li{
+    display: inline-block;
+    padding-left: 2rem;
+}
+
+.nav-content li a {
+    text-decoration: none;
+    color: white;
+}
+
+.nav-content li a:hover {
+    padding-bottom: 1.2rem;
+    border-bottom: 4px white solid;
+}
+
+.home {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-image: url("../images/remy_loz-3S0INpfREQc-unsplash.jpg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+.home img {
+    height: 200px;
+    width: 200px;
+    margin-top: 7rem;
+    border: 10px solid rgba(0, 0, 0, 0.376);
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.home h1 {
+    color: white;
+    font-family: Courgette;
+    font-size: 3.5rem;
+    padding-top: 2.5rem;
+    z-index: 1;
+}
+
+.home p {
+    font-weight: 700;
+    color: white;
+    padding: 2rem 0 1.5rem 0;
+    z-index: 1;
+}
+
+.cta {
+    margin: 2rem 0 8rem 0;
+    z-index: 1;
+}
+
+.cta a {
+    font-size: 15px;
+    font-weight: 700;
+    text-decoration: none;
+    background-color:rgba(255, 255, 255, 0.137);
+    color: white;
+    padding: 12px 30px;
+    border-radius: 22px;
+}
+
+.cta a:hover {
+    background-color: gray;
+}
+
+.hireme {
+    margin-right: 1rem;
+}
+
+.getcv {
+    margin-left: 1rem;
+}
+
+.overlay {
+    height: 100%;
+    width: 100%;
+    background-color:rgba(0, 0, 0, 0.726);
+    position: absolute;
+}
+
+.about {
+    color: white;
+    display: flex;
+    flex-direction: row;
+    padding: 5rem;
+}
+
+.about img {
+    border-radius: 10px;
+    height: 25rem;
+    width: 45rem;
+    margin: 0 5rem;
+}
+
+.description p, .description div {
+    margin: 2rem 0;
+}
+
+.description div h4 {
+    margin-bottom: 1rem;
+}
+
+#services {
+    background-color: rgba(0, 0, 0, 0.603);
+    padding: 5rem;
+}
+
+#services h1 {
+    margin-bottom: 4rem;
+}
+
+.services {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.service-1, .service-2, .service-3 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+}
+
+.service-icon {
+    height: 5rem;
+    width: 5rem;
+    margin-bottom: 2rem;
+}
+
+.services h2, .services p {
+    text-align: center;
+}
+
+.services h2 {
+    margin-bottom: 2rem;
+}
+
+#projects {
+    padding: 5rem;
+}
+
+#projects h1 {
+    margin-bottom: 2rem;
+}
+
+.projects {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.project-1, .project-2, .project-3, .project-4 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    margin: 1rem;
+    background-color: rgb(37, 36, 36);
+    border-radius: 10px;
+}
+
+.projects h2, .projects p {
+    padding: 0.5rem 0;
+    text-align: center;
+}
+
+.projects a {
+    padding-top: 0.5rem;
+    text-decoration: none;
+    color: rgb(158, 89, 39);
+    border-bottom: 1px rgb(158, 89, 39) solid;
+}
+
+.projects a:hover {
+    color: rgb(197, 135, 90);
+}
+
+#blog {
+    padding: 5rem;
+}
+
+#blog h1 {
+    margin-bottom: 2rem;
+}
+
+.articles {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.article {
+    margin-right: 2rem;
+}
+
+.articles h1 {
+    font-size: 1rem;
+}
+
+.articles p {
+    font-size: 0.8rem;
+}
+
+.article a {
+    font-size: 0.8rem;
+    color: rgb(158, 89, 39);
+}
+
+.article a:hover {
+    color: rgb(197, 135, 90);
+}
+
+.comments {
+    padding-top: 1rem;
+}
+
+.signin h3 {
+    padding:2rem 0 1rem 0;
+}
+
+.signin p {
+    font-size: 14px;
+    margin-bottom: 1.5rem;
+}
+
+.signin a {
+    text-decoration: none;
+    border: none;
+    color: #fff;
+    background-color: rgb(158, 89, 39);
+    margin-left: 2.2rem;
+    padding: 0.5rem 1rem;
+}
+
+#contact {
+    background-color: rgba(0, 0, 0, 0.603);
+    padding: 5rem;
+}
+
+#contact h1 {
+    margin-bottom: 2rem;
+}
+
+.contact {
+    display: flex;
+    flex-direction: row;
+}
+
+.contact-info {
+    margin-top: 2rem;
+}
+
+.address, .email, .phone {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 2rem;
+}
+
+.social-media {
+    display: flex;
+    flex-direction: row;
+}
+
+.social-media a img {
+    height: 1.8rem;
+    width: 2rem;
+    padding: 0.33rem;
+    margin-right: 1rem;
+    color: #fff;
+    background-color: rgb(158, 89, 39);
+    border-radius: 50%;
+}
+
+.social-media a img:hover {
+    background-color: rgb(197, 135, 90);
+}
+
+.contacts-icon {
+    border: 1px #fff solid;
+    border-radius: 50%;
+    padding: 15px 17px;
+    margin-right: 2rem;
+}
+
+.or {
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 8rem 0 0 14rem;
+}
+
+.send-me-a-message {
+    margin-left: 20rem;
+}
+
+.send-me-a-message h3{
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.send-me-a-message form {
+    display: flex;
+    flex-direction: column;
+}
+
+.send-me-a-message form input {
+    background-color: transparent;
+    border: 1px solid #fff;
+    padding: 1rem 0;
+    margin-top: 1rem;
+}
+
+textarea {
+    border: 1px solid #fff;
+    background-color: transparent;
+    margin-top: 1rem;
+}
+
+#contact-form .form-control i{
+    top: 2rem;
+    right: 1rem;
+}
+
+.send-me-a-message .submit {
+    border: none;
+    color: #fff;
+    background-color: rgb(158, 89, 39);
+}
+
+footer {
+    display: flex;
+    flex-direction: column;
+    padding: 5rem 5rem 2rem 5rem;
+}
+
+.newslet-nav {
+    display: flex;
+    flex-direction: row;
+}
+
+.newsletter p {
+    margin: 1rem 0;
+}
+
+.newsletter form input {
+    background-color: transparent;
+    border: 1px solid #fff;
+    padding: 0.8rem 3rem;
+    margin-bottom: 1rem;
+}
+
+.newsletter form .submit {
+    color: white;
+    background-color: rgb(158, 89, 39);
+    margin-left: 1rem;    
+    border: rgb(158, 89, 39);
+}
+
+.bottom-nav {
+    display: flex;
+    flex-direction: row;
+    margin-left: 30rem;
+}
+
+.bottom-nav-1, .bottom-nav-2 {
+    display: flex;
+    flex-direction: column;
+}
+
+.bottom-nav-2 {
+    margin-left: 5rem;
+}
+
+.bottom-nav-1 a, .bottom-nav-2 a {
+    text-decoration: none;
+    color: white;
+    margin-bottom: 2rem;
+}
+
+.copyright {
+    font-size: 0.8rem;
+    padding-top: 4rem;
+}
+
+.login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 5rem 30rem;
+    padding: 3rem 0;
+    background-color: rgb(37, 36, 36);
+}
+
+.login h1 {
+  margin-bottom: 2rem;
+}
+
+.login form {
+    display: flex;
+    flex-direction: column;
+}
+
+.login form input {
+    background-color: transparent;
+    border: 1px solid #fff;
+    padding: 1rem 3rem;
+}
+
+.login form a span {
+    margin-bottom: 5rem;
+}
+
+.login form a {
+    padding: 0.8rem 0;
+    color: rgb(158, 89, 39);
+}
+
+input:focus, textarea:focus {
+    color: white;
+}
+
+.form-control {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.form-control label {
+    margin: 1rem 0 0.5rem 0;
+}
+
+.form-control i {
+   position:absolute;
+   top: 3.8rem;
+   right: 1rem;
+   visibility: hidden;
+}
+
+.form-control small {
+    visibility: hidden;    
+    color: #e74c3c;
+}
+
+.form-control.success input {
+    border-color: #2ecc71;
+}
+
+.form-control.error input, .form-control.error textarea {
+    border-color: #e74c3c;
+}
+
+.form-control.success i.fa-check-circle {
+    visibility: visible;
+    color: #2ecc71;
+}
+
+.form-control.error i.fa-exclamation-circle {
+    visibility: visible;
+    color: #e74c3c;
+}
+
+.form-control.error small {
+    visibility: visible;
+}
+
+.remember-me {
+    display: flex;
+    flex-direction: row;
+}
+
+.remember-me input {
+    margin: 5px 7px 0 0;
+    border: 1px solid rgb(158, 89, 39);
+}
+
+.login .submit {
+    border: none;
+    color: #fff;
+    background-color: rgb(158, 89, 39);
+    margin: 1rem 0 3rem 0;
+}
+
+.submit:hover {
+    background-color: rgb(197, 135, 90);
+}
+
+.newsletter form .submit:hover {
+    background-color: rgb(197, 135, 90);
+}
+
+.pswd-info {
+    position: absolute;
+    padding: 1rem;
+    background-color: rgb(37, 36, 36);
+    font-size: 0.8rem;
+    border-radius: 5px;
+    top: 28.5rem;
+    right: 15rem;
+}
+
+.pswd-info h3 {
+    padding-bottom: 0.5rem;
+}
+
+.pswd-info ul li {
+    list-style-type: none;
+    padding-bottom: 0.5rem;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+.visible {
+    visibility: visible;
+}
+
+.invalid {
+    color: #e74c3c;
+}
+
+.valid {
+    color: #2ecc71;
+}
+
+@media only screen and (max-width:375px) {
+
+    header {
+        padding: 1.5rem;
+    }
+
+    .navbar {
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+    }
+
+    .nav-content {
+        display: none;
+    }
+
+    .label {
+        display: block;
+        margin-left: 15rem;
+    }
+
+    header input:checked ~ .nav-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 0 3rem 0 0;
+    }
+
+    .nav-content li a {
+        font-size: 1.7rem;
+        margin-bottom: 100px;
+    }
+
+    .nav-content li a:hover {
+        border-bottom: 4px white solid;
+    }
+
+    .logo {
+        margin: 0;
+        background-color: #00000000;
+    }
+
+    .home {
+        background-size: 100% 42.5rem;
+    }
+
+    .home h1 {
+        font-size: 2.5rem;
+    }
+
+    .hireme {
+        margin-right: 0.5rem;
+    }
+    
+    .getcv {
+        margin-left: 0.5rem;
+    }
+
+    .about {
+        flex-direction: column;
+        margin: 5rem 2rem;
+        align-items: center;
+    }
+
+    .about img {
+        border-radius: 10px;
+        height: 20rem;
+        width: 16rem;
+        margin: 2rem 0;
+    }
+
+    .description h1, .description p {
+        text-align: center;
+    }
+
+    .description div {
+        margin-left: 3rem;
+    }
+
+    #services {
+        padding: 5rem 2rem;
+    }
+
+    .services, .projects, .articles, .contact, footer {
+        flex-direction: column;
+    }
+
+    #projects {
+        padding: 5rem 2rem;
+    }
+
+    #contact {
+        padding: 5rem 2rem;
+    }
+
+    .contact {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .or {
+        margin: 4rem 0;
+    }
+
+    .send-me-a-message {
+        margin:0;
+        padding: 0;
+    }
+
+    .send-me-a-message h3{
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+
+    footer {
+        padding: 5rem 2rem 2rem 2rem;
+    }
+
+    .newslet-nav{
+        flex-direction: column;
+    }
+
+    .bottom-nav {
+        margin-left: 0;
+    }
+
+    .login {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 5rem 1.5rem;
+        padding: 3rem 0;
+        background-color: rgb(37, 36, 36);
+    }
+}

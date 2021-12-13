@@ -1,0 +1,9 @@
+.popup {
+  position: fixed;
+  display: none;
+}
+
+.popup.active {
+  display: grid;
+  animation: show .7s ease-in-out;
+}
