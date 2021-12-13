@@ -6,12 +6,12 @@
 
 @font-face {
     font-family: "OpenSans";
-    src: url(fonts/PublicSans-VariableFont_wght.ttf);
+    src: url(../fonts/PublicSans-VariableFont_wght.ttf);
 }
 
 @font-face {
     font-family: "Courgette";
-    src: url(fonts/courgette/Courgette-Regular.ttf);
+    src: url(../fonts/courgette/Courgette-Regular.ttf);
 }
 
 body {
