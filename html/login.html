@@ -33,8 +33,8 @@
         <h1>LOGIN</h1>        
         <form action="" id="login-form" novalidate>
             <div class="form-control">
-                <label>Username</label>
-                <input type="text" placeholder="Username*" id="login-username">
+                <label>Email</label>
+                <input type="email" placeholder="Email*" id="login-email">
                 <i class="fa fa-check-circle"></i>
                 <i class="fa fa-exclamation-circle"></i>
                 <small>Error message</small>
@@ -50,12 +50,16 @@
                 <input type="checkbox" id="remember-me">
                 <label for="remember-me" class="login-label">remember me</label>
             </div>
-            <input class="submit" type="submit" value="Log in">
+            <button class="submit" onclick="logIn()">Log In</button>
             <p>Or login with</p>
             <a href="">Google</a>
             <p>Don't have an account? <a href="signup.html">Sign Up</a></p>
         </form>
     </section>
+    <script defer src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script defer src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script defer src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+    <script defer src="../script/firebase-config.js"></script>
     <script src="../script/login.js"></script>
 </body>
 </html>

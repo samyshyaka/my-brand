@@ -60,7 +60,7 @@
                 <i class="fa fa-exclamation-circle"></i>
                 <small>Error message</small>
             </div>
-            <input class="submit" type="submit" value="Sign Up">
+            <button class="submit" onclick="register()">Sign Up</button>
             <p>Or Sign up with</p>
             <a href="">Google</a>
         </form>
@@ -75,6 +75,11 @@
             </ul>
         </div>
     </section>
+
+    <script defer src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script defer src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script defer src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+    <script defer src="../script/firebase-config.js"></script>
     <script src="../script/signup.js"></script>
 </body>
 </html>

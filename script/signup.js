@@ -1,4 +1,5 @@
 //Validating Sign up form
+
 const form = document.getElementById('form');
 const username = document.getElementById('username');
 const email = document.getElementById('email');
@@ -15,6 +16,7 @@ const letterValidationIcon = document.querySelector('#letter i');
 const capitalValidationIcon = document.querySelector('#capital i');
 const numberValidationIcon = document.querySelector('#number i');
 const specialCharValidationIcon = document.querySelector('#special-char i');
+
 
 form.addEventListener('submit', e => {
     e.preventDefault();
@@ -133,3 +135,46 @@ function isEmail(emailAddress) {
     const regEx = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return regEx.test(emailAddress);
 }
+
+// user authentication
+
+function register() {
+    firebase.auth().createUserWithEmailAndPassword(email.value, password.value)
+    .then(()=>{
+
+        //Declare user variable
+        var user = auth.currentUser
+    
+        //add user to the database
+    
+        var database_ref = db.ref();
+    
+        //Create user data
+    
+        var user_data = {
+            email:email.value,
+            username: username.value,
+            last_login: Date.now()
+        }
+    
+        database_ref.child('users/' + user.uid).set(user_data);
+
+        window.location.href("/html/login.html");
+    
+    })
+    .catch(error => {
+        var error_code = error.code;
+        var error_message = error.message;
+        alert(error_message)
+    })
+
+    firebase.auth().onAuthStateChanged(user => {
+        if(user){
+            window.location = 'login.html';
+
+            alert('user created!')
+        }
+    })
+}
+
+

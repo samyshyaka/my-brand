@@ -466,7 +466,7 @@ footer {
     flex-direction: column;
 }
 
-.login form input {
+.login form input, .login form button {
     background-color: transparent;
     border: 1px solid #fff;
     padding: 1rem 3rem;
