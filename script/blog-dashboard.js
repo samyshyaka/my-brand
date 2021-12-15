@@ -4,7 +4,7 @@ let popup = document.querySelector(".popup");
 let cancel = document.getElementById('cancel');
 let form = document.querySelector('form');
 
-var toolbarOptions = [
+let toolbarOptions = [
     ['bold', 'italic', 'underline', 'strike'],
     ['blockquote', 'code-block'],
     [{'header': [1,2,3,4,5,6,false]}],
@@ -19,7 +19,7 @@ var toolbarOptions = [
     [{'align': []}]
 ]
 
-var quill = new Quill('#editor', {
+let quill = new Quill('#editor', {
     modules: {
         toolbar: toolbarOptions
     },
@@ -28,12 +28,14 @@ var quill = new Quill('#editor', {
 });
 
 // $('#saveDelta').click(()=>{
-//     var editorContentHtml = quill.root.innerHTML;
+//     let editorContentHtml = quill.root.innerHTML;
 
 //     $('#editorContent').html(justHtml);
 // })
 
-var article_ref = db.ref('articles/')
+let article_ref = db.ref('articles/')
+
+ // write data
 
 function save(id, title, author, content) {
     article_ref.child(id).set({
@@ -44,11 +46,20 @@ function save(id, title, author, content) {
     })
   }
 
+addArticle.addEventListener('click', () => {
+    popup.classList.add('active');
+    form.addEventListener('submit', e => {
+        e.preventDefault();
+        save(form.id.value, form.title.value, form.author.value, quill.root.innerHTML)
+        popup.classList.remove('active');
+    })
+})
+
   //read
 
 function read() {
     article_ref.on('value', snapshot => {
-        var articles = snapshot.val()
+        let articles = snapshot.val()
         tableBody.innerHTML = ""
         for (let article in articles){
             let tr = `
@@ -111,21 +122,31 @@ function read() {
 
 read();
 
-// write data
-
-addArticle.addEventListener('click', () => {
-    popup.classList.add('active');
-    form.addEventListener('submit', e => {
-        e.preventDefault();
-var editorContentHtml = quill.root.innerHTML;
-        save(form.id.value, form.title.value, form.author.value, quill.root.innerHTML)
-        popup.classList.remove('active');
-    })
-})
-
 //cancel
 
 cancel.addEventListener('click', () => {
     popup.classList.remove('active');
     form.reset();
 })
+
+// Create new document
+
+ function makeDocument() {
+     let newArticle = document.implementation.createHTMLDocument("blogArticle");
+     article_ref.on('value', snapshot => {
+         let articles = snapshot.val()
+         for (let article in articles){
+             let h2 = newArticle.createElement("h2");
+             let h4 = newArticle.createElement("h4");
+             h2.textContent = articles[article].title;
+             h4.textContent = "Written by " + articles[article].title;
+             let parser = new DOMParser();
+             let p = parser.parseFromString(articles[article].content, 'text/html')
+             newArticle.body.append(h2, h4, p.body.children[0])
+         }    
+     })
+
+     console.log(newArticle);
+ }
+
+ makeDocument();

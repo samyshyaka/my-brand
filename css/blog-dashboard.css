@@ -1,9 +1,121 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: "OpenSans";
+  src: url(../fonts/PublicSans-VariableFont_wght.ttf);
+}
+
+body {
+  background-color: rgba(0, 0, 0, 0.931);
+  font-family: "OpenSans";
+  color: rgba(255, 255, 255, 0.863);
+}
+
+.wrapper {
+  min-height: 100vh;
+  background-color: rgb(37, 36, 36);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#crud {
+  width: 90%;
+  text-align: center;
+}
+
+#crud caption {
+  background-color: rgb(158, 89, 39);
+  padding: 0.8rem 0;
+  font-size: 1.5rem;
+}
+
+#crud thead {
+  background-color: rgba(158, 89, 39, 0.096);
+}
+
+#crud thead td {
+  padding: 0.8rem;
+  color: rgb(247, 143, 70);
+}
+
+#crud tbody td {
+  padding: 0.8rem;
+  border-bottom: 1px solid rgb(158, 89, 39);
+}
+
+#crud tbody td button, .add-article {
+  padding: 0.3rem 0.5rem;
+  border: none;
+  background: transparent;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.863);
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+#crud tbody td button.edit {
+  background-color: rgb(158, 89, 39);
+}
+
+#crud tbody td button.delete {
+  background-color: rgb(180, 33, 7);
+}
+
+.add-article {
+  background-color: rgb(158, 89, 39);
+  margin-top: 1.6rem;
+  padding: 0.8rem 1.6rem;
+}
+
 .popup {
   position: fixed;
+  background-color:rgb(37, 36, 36);
   display: none;
+  place-items: center;
 }
 
 .popup.active {
   display: grid;
-  animation: show .7s ease-in-out;
+  inset: 0;
+}
+
+.popup form {
+  background-color:rgb(37, 36, 36);
+  display: flex;
+  flex-direction: column;
+  max-width: 130rem;
+  padding: 3rem 1.6rem;
+}
+
+.popup form input {
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.144);
+  color: rgba(255, 255, 255, 0.863);
+  border: 1px solid rgba(255, 255, 255, 0.863);
+  margin-bottom: 0.5rem;
+  padding: 0.7rem 1rem;
+}
+
+.popup form input[type = "submit"] {
+  background-color: rgb(158, 89, 39);
+  border: none;
+  cursor: pointer;
+  max-width: 20%;
+  margin: 1rem;
+}
+
+.ql-editor{
+  min-height:21rem;
+}
+
+.cta {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
