@@ -58,13 +58,15 @@ addArticle.addEventListener('click', () => {
   //read
 
 function read() {
+    let z = 0;
     article_ref.on('value', snapshot => {
         let articles = snapshot.val()
         tableBody.innerHTML = ""
         for (let article in articles){
+            z++;
             let tr = `
                 <tr data-id = '${article}'>
-                    <td>${articles[article].id}</td>
+                    <td>`+ z +`</td>
                     <td>${articles[article].title}</td>
                     <td>${articles[article].author}</td>
                     <td>
@@ -128,25 +130,3 @@ cancel.addEventListener('click', () => {
     popup.classList.remove('active');
     form.reset();
 })
-
-// Create new document
-
- function makeDocument() {
-     let newArticle = document.implementation.createHTMLDocument("blogArticle");
-     article_ref.on('value', snapshot => {
-         let articles = snapshot.val()
-         for (let article in articles){
-             let h2 = newArticle.createElement("h2");
-             let h4 = newArticle.createElement("h4");
-             h2.textContent = articles[article].title;
-             h4.textContent = "Written by " + articles[article].title;
-             let parser = new DOMParser();
-             let p = parser.parseFromString(articles[article].content, 'text/html')
-             newArticle.body.append(h2, h4, p.body.children[0])
-         }    
-     })
-
-     console.log(newArticle);
- }
-
- makeDocument();

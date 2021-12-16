@@ -144,7 +144,7 @@
             <div class="or">Or</div>
             <div class="send-me-a-message">
                 <h3>Send me a message</h3>
-                <form action="" id="contact-form">
+                <form action="" id="contact-form" novalidate>
                     <div class="form-control">
                         <input type="text" placeholder="Enter your full name" id="message-full-name">
                         <i class="fa fa-exclamation-circle"></i>
@@ -191,6 +191,10 @@
         <p class="copyright">&copy; 2021 Samuel Shyaka</p>
     </footer>
     </div>
-    <script src="script/contact.js"></script>
+    <script defer src="https://smtpjs.com/v3/smtp.js"></script>
+    <script defer src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script defer src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+    <script defer src="../script/firebase-config.js"></script>
+    <script defer src="script/contact.js"></script>
 </body>
 </html>

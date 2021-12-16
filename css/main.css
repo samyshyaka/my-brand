@@ -250,12 +250,22 @@ header {
     margin-bottom: 2rem;
 }
 
+.article form {
+    display: flex;
+    flex-direction: column;
+}
+
 .article form input {
     background-color: transparent;
     border: none;
     border-bottom: 1px solid #fff;
-    padding: 0.8rem 3rem;
+    padding: 0.5rem 0;
     margin-bottom: 1rem;
+    width: 15rem;
+}
+
+.article form input:focus {
+    outline: none;
 }
 
 .article form button {
@@ -263,8 +273,8 @@ header {
     border: none;
     color: #fff;
     background-color: rgb(158, 89, 39);
-    margin-left: 2.2rem;
-    padding: 0.5rem 1rem;
+    padding: 0.5rem 0;
+    width: 5rem;
 }
 
 .articles {
@@ -391,6 +401,10 @@ header {
     border: 1px solid #fff;
     padding: 1rem 0;
     margin-top: 1rem;
+}
+
+input {
+    color: white;
 }
 
 textarea {

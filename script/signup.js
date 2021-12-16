@@ -20,8 +20,8 @@ const specialCharValidationIcon = document.querySelector('#special-char i');
 
 form.addEventListener('submit', e => {
     e.preventDefault();
-
     checkInputs();
+    register();
 })
 
 function checkInputs() {

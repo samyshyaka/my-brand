@@ -1,3 +1,4 @@
+let commentSection = document.getElementById('comment-section')
 let blogArticle = document.querySelector('.articles')
 let article_ref = db.ref('articles/')
 
@@ -8,7 +9,7 @@ let obj = {
 
 console.log(obj.name);
 
-function makeDocument() {    
+function displayArticle() {    
     article_ref.on('value', snapshot => {
         let articles = snapshot.val()
         blogArticle.innerHTML = ""
@@ -21,11 +22,14 @@ function makeDocument() {
                     <p>${articles[article].content}</p>
                     <a href="">read more</a>
                     <form action="">
+                        <input type="text" placeholder="Your name" >
                         <input type="text" placeholder="Type your comment">
                         <button>Submit</button>
                     </form>
+                    <div id"comment-section"></div>
                 </div>
             </div>`
+
             blogArticle.innerHTML += tr;
 
         }
@@ -35,4 +39,4 @@ console.log(blogArticle);
 
 }
 
-makeDocument();
+displayArticle();

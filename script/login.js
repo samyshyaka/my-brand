@@ -5,8 +5,8 @@ const loginPassword = document.getElementById("login-password");
 
 loginForm.addEventListener("submit", (e) => {
   e.preventDefault();
-
   checkLoginInputs();
+  logIn();
 });
 
 function checkLoginInputs() {
@@ -16,11 +16,11 @@ function checkLoginInputs() {
 
   if(emailValue === '') {
     setLoginErrorFor(email, 'Email cannot be blank');
-} else if(!isEmail(emailValue)){
+  } else if(!isEmail(emailValue)){
   setLoginErrorFor(email, 'Email is not valid');
-} else {
+  } else {
   setLoginSuccessFor(email);
-}
+  }
 
   if (loginPasswordValue === "") {
     setLoginErrorFor(loginPassword, "Password cannot be blank");

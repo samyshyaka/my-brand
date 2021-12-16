@@ -78,6 +78,7 @@ body {
   background-color:rgb(37, 36, 36);
   display: none;
   place-items: center;
+  z-index: 2;
 }
 
 .popup.active {
@@ -107,15 +108,19 @@ body {
   border: none;
   cursor: pointer;
   max-width: 20%;
-  margin: 1rem;
+  margin: 0 1rem;
 }
 
 .ql-editor{
-  min-height:21rem;
+  min-height:20rem;
 }
 
 .cta {
   display: flex;
   flex-direction: row;
   justify-content: center;
+}
+
+@media only screen and (max-width:375px) {
+  
 }
