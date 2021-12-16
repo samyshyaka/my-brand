@@ -246,8 +246,25 @@ header {
     padding: 5rem;
 }
 
-#blog h1 {
+.blog-header h1 {
     margin-bottom: 2rem;
+}
+
+.article form input {
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #fff;
+    padding: 0.8rem 3rem;
+    margin-bottom: 1rem;
+}
+
+.article form button {
+    text-decoration: none;
+    border: none;
+    color: #fff;
+    background-color: rgb(158, 89, 39);
+    margin-left: 2.2rem;
+    padding: 0.5rem 1rem;
 }
 
 .articles {
@@ -256,16 +273,34 @@ header {
     justify-content: center;
 }
 
+.blog-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.blog-header a {
+    text-decoration: none;
+    border: none;
+    color: #fff;
+    background-color: rgb(158, 89, 39);
+    margin-left: 2.2rem;
+    padding: 0.5rem 1rem;
+    height: 2.5rem;
+}
+
 .article {
     margin-right: 2rem;
 }
 
 .articles h1 {
     font-size: 1rem;
+    padding-bottom: 1rem;
 }
 
 .articles h4 {
     font-size: 0.7rem;
+    padding-bottom: 1rem;
 }
 
 .articles p {
@@ -279,28 +314,6 @@ header {
 
 .article a:hover {
     color: rgb(197, 135, 90);
-}
-
-.comments {
-    padding-top: 1rem;
-}
-
-.signin h3 {
-    padding:2rem 0 1rem 0;
-}
-
-.signin p {
-    font-size: 14px;
-    margin-bottom: 1.5rem;
-}
-
-.signin a {
-    text-decoration: none;
-    border: none;
-    color: #fff;
-    background-color: rgb(158, 89, 39);
-    margin-left: 2.2rem;
-    padding: 0.5rem 1rem;
 }
 
 #contact {

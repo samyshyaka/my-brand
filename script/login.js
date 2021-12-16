@@ -1,6 +1,6 @@
 //Validating Log in form
 const loginForm = document.getElementById("login-form");
-const loginUsername = document.getElementById("login-username");
+const email = document.getElementById('login-email');
 const loginPassword = document.getElementById("login-password");
 
 loginForm.addEventListener("submit", (e) => {
@@ -11,20 +11,28 @@ loginForm.addEventListener("submit", (e) => {
 
 function checkLoginInputs() {
   //get values from the inputs
-  const loginUsernameValue = loginUsername.value.trim();
+  const emailValue = email.value.trim();
   const loginPasswordValue = loginPassword.value.trim();
 
-  if (loginUsernameValue === "") {
-    setLoginErrorFor(loginUsername, "Username cannot be blank");
-  } else {
-    setLoginSuccessFor(loginUsername);
-  }
+  if(emailValue === '') {
+    setLoginErrorFor(email, 'Email cannot be blank');
+} else if(!isEmail(emailValue)){
+  setLoginErrorFor(email, 'Email is not valid');
+} else {
+  setLoginSuccessFor(email);
+}
 
   if (loginPasswordValue === "") {
     setLoginErrorFor(loginPassword, "Password cannot be blank");
   } else {
     setLoginSuccessFor(loginPassword);
   }
+}
+
+function isEmail(emailAddress) {
+
+  const regEx = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  return regEx.test(emailAddress);
 }
 
 function setLoginErrorFor(input, message) {
@@ -52,7 +60,7 @@ function logIn() {
     .signInWithEmailAndPassword(email.value, password.value)
     .then(() => {
       //Declare user variable
-      var user = auth.currentUser;
+      var user = firebase.auth().currentUser;
 
       //add user to the database
 
@@ -65,18 +73,23 @@ function logIn() {
       };
 
       database_ref.child("users/" + user.uid).update(user_data);
+
+      window.location = "blog-dashboard.html";
+
     })
     .catch((error) => {
       var error_code = error.code;
       var error_message = error.message;
-      alert(error_message);
+      if (error_message == "The password is invalid or the user does not have a password.")
+      setLoginErrorFor(loginPassword, "Wrong password");
+      console.log(error_message);
     });
 
-  firebase.auth().onAuthStateChanged((user) => {
-    if (user) {
-      window.location = "blog-dashboard.html";
-    }
+  // firebase.auth().onAuthStateChanged((user) => {
+  //   if (user) {
+  //     window.location = "blog-dashboard.html";
+  //   }
 
-    alert("User Logged In!");
-  });
+  //   alert("User Logged In!");
+  // });
 }

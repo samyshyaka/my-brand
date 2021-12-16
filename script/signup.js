@@ -104,7 +104,7 @@ password.addEventListener('input', (e) => {
         numberValidationIcon.className = "fa fa-times"
     }
 
-    if(passwordValue.match(/[!@#$%&]/)){
+    if(passwordValue.match(/[!@#$%&*]/)){
         pswdSpecialChar.className = "valid";
         specialCharValidationIcon.className = "fa fa-check";
     } else {
@@ -143,7 +143,7 @@ function register() {
     .then(()=>{
 
         //Declare user variable
-        var user = auth.currentUser
+        var user = firebase.auth().currentUser
     
         //add user to the database
     
@@ -159,22 +159,23 @@ function register() {
     
         database_ref.child('users/' + user.uid).set(user_data);
 
-        window.location.href("/html/login.html");
+        window.location = "login.html";
     
     })
     .catch(error => {
-        var error_code = error.code;
+        // var error_code = error.code;
         var error_message = error.message;
-        alert(error_message)
-    })
-
-    firebase.auth().onAuthStateChanged(user => {
-        if(user){
-            window.location = 'login.html';
-
-            alert('user created!')
+        if (error_message == "Password should be at least 6 characters"){
+            setErrorFor(password, "password does not meet the requirements");            
         }
+
+        else if (error_message == "The email address is already in use by another account."){
+            setErrorFor(email, 'Email already in use');
+        }
+        console.log(error_message)
+
     })
+
 }
 
 
