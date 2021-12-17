@@ -253,7 +253,7 @@ header {
 .article form {
     display: flex;
     flex-direction: column;
-    margin-top: 2rem;
+    margin: 2rem 0;
 }
 
 .article form input {
@@ -754,5 +754,9 @@ input:focus, textarea:focus {
         margin: 5rem 1.5rem;
         padding: 3rem 0;
         background-color: rgb(37, 36, 36);
+    }
+
+    #blog {
+        padding: 5rem 2.5rem;
     }
 }

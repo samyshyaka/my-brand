@@ -1,13 +1,5 @@
-let commentSection = document.getElementById('comment-section')
 let blogArticle = document.querySelector('.articles')
 let article_ref = db.ref('articles/')
-
-let obj = {
-    name: "sam",
-    address: "kigali"
-}
-
-console.log(obj.name);
 
 function displayArticle() {    
     article_ref.on('value', snapshot => {
@@ -22,11 +14,11 @@ function displayArticle() {
                     <p>${articles[article].content}</p>
                     <a href="">read more</a>
                     <form action="">
-                        <input type="text" placeholder="Your name" >
-                        <input type="text" placeholder="Type your comment">
-                        <button>Submit</button>
+                        <input type="text" placeholder="Your name" id="comment-writer">
+                        <input type="text" placeholder="Type your comment" id="comment">
+                        <button id="comment-section">Submit</button>
                     </form>
-                    <div id"comment-section"></div>
+                    <div id="submit-comment"></div>
                 </div>
             </div>`
 
@@ -35,8 +27,26 @@ function displayArticle() {
         }
 
 console.log(blogArticle);
-    })
+    }) 
 
 }
 
 displayArticle();
+
+// let submitComment = document.getElementById('submit-comment');
+// let commentWriter = document.getElementById("comment-writer");
+// let commentContent = document.getElementById("comment");
+
+// function saveComment(writer, comment){
+//     article_ref.child(id).child(writer).set({
+//         name: writer,
+//     comment: comment
+//     })
+
+//     alert('comment saved')
+// }
+
+// submitComment.addEventListener('click', e => {
+//     e.preventDefault();
+//     saveComment(commentWriter, commentContent)
+// })

@@ -3,6 +3,7 @@ let addArticle = document.querySelector('.add-article');
 let popup = document.querySelector(".popup");
 let cancel = document.getElementById('cancel');
 let form = document.querySelector('form');
+let logout = document.getElementById('logout');
 
 let toolbarOptions = [
     ['bold', 'italic', 'underline', 'strike'],
@@ -130,3 +131,18 @@ cancel.addEventListener('click', () => {
     popup.classList.remove('active');
     form.reset();
 })
+
+// logout
+
+logout.addEventListener('click', e => {
+    logOut()
+})
+
+function logOut() {
+    firebase.auth().signOut().then(() => {
+        window.location = "login.html";
+    }).catch((error) => {
+        message_error = error.message;
+        alert(message_error)
+    })
+}
