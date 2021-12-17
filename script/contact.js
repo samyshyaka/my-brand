@@ -63,13 +63,23 @@ function setsuccessErrorFor(input) {
 }
 
 function saveContactInfo(name, email, message){
-    contact_info_ref.push().set({
-        name:name,
-        email: email,
-        message:message
-    }).then(message => {
-        alert("Message sent successfully");
-    })
+
+    const messageFullNameValue = messageFullName.value;
+    const messageEmailValue = messageEmail.value;
+    const messageValue = message.value;
+
+    if(messageFullNameValue !== '' && messageEmailValue !==''
+    && isEmail(messageEmailValue) && messageValue !== ''){
+        contact_info_ref.push().set({
+            name:name,
+            email: email,
+            message:message
+        }).then(message => {
+            alert("Message sent successfully");
+        })
+    }
+    
+    
 }
 
 function isEmail(emailAddress) {
