@@ -141,6 +141,7 @@ logout.addEventListener('click', e => {
 function logOut() {
     firebase.auth().signOut().then(() => {
         window.location = "login.html";
+        alert("you are logged out")
     }).catch((error) => {
         message_error = error.message;
         alert(message_error)

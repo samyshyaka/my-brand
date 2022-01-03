@@ -1,0 +1,75 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  
+  @font-face {
+    font-family: "OpenSans";
+    src: url(../fonts/PublicSans-VariableFont_wght.ttf);
+  }
+  
+  body {
+    background-color: rgb(37, 36, 36);
+    font-family: "OpenSans";
+    color: rgba(255, 255, 255, 0.863);
+  }
+
+  .wrapper {
+      display: flex;
+      flex-direction: row;
+  }
+
+  .nav-content li {
+    list-style-type: none;
+    margin-top: 2rem;
+  }
+
+  .nav-content li a {
+      text-decoration: none;
+      color: white;
+  }
+
+  navbar {
+      padding: 0 2rem;
+  }
+
+  .logo h2{
+    font-size: 18px;
+    padding: 1rem;
+    text-decoration: none;
+    border-radius: 50%;
+    color: white;
+    margin: 1rem 1rem;
+  }
+
+  .logo {
+    text-decoration: none;
+  }
+
+  .nav-profile {
+    display: flex;
+    flex-direction: row;
+ }
+  
+  .nav-profile img{
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+  }
+
+  .nav-prof-details {
+    margin-left: 0.5rem;
+  }
+
+  .queries {
+    margin-left: 5rem;
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  h1 {
+    margin-bottom: 2rem;
+  }
