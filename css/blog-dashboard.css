@@ -10,60 +10,13 @@
 }
 
 body {
-  background-color: rgb(37, 36, 36);
+  background-color: rgba(0, 0, 0, 0.931);
   font-family: "OpenSans";
   color: rgba(255, 255, 255, 0.863);
 }
 
 .wrapper {
   min-height: 100vh;
-  display: flex;
-  flex-direction: row;
-}
-
-.nav-content li {
-  list-style-type: none;
-  margin-top: 2rem;
-}
-
-.nav-content li a {
-    text-decoration: none;
-    color: white;
-}
-
-navbar {
-    padding: 0 2rem;
-}
-
-.logo h2{
-  font-size: 18px;
-  padding: 1rem;
-  text-decoration: none;
-  border-radius: 50%;
-  color: white;
-  margin: 1rem 1rem;
-}
-
-.logo {
-  text-decoration: none;
-}
-
-.nav-profile {
-  display: flex;
-  flex-direction: row;
-}
-
-.nav-profile img{
-  height: 40px;
-  width: 40px;
-  border-radius: 50%;
-}
-
-.nav-prof-details {
-  margin-left: 0.5rem;
-}
-
-.table-wrapper { 
   background-color: rgb(37, 36, 36);
   display: flex;
   flex-direction: column;
@@ -86,7 +39,7 @@ navbar {
 }
 
 #crud {
-  width: 60rem;
+  width: 90%;
   text-align: center;
 }
 
