@@ -28,102 +28,169 @@ let quill = new Quill('#editor', {
     theme: 'snow'
 });
 
-// $('#saveDelta').click(()=>{
-//     let editorContentHtml = quill.root.innerHTML;
-
-//     $('#editorContent').html(justHtml);
-// })
-
-let article_ref = db.ref('articles/')
-
- // write data
-
-function save(id, title, author, content) {
-    article_ref.child(id).set({
-        id:id,
-        title: title,
-        author: author,
-        content:content
-    })
-  }
-
 addArticle.addEventListener('click', () => {
     popup.classList.add('active');
     form.addEventListener('submit', e => {
         e.preventDefault();
-        save(form.id.value, form.title.value, form.author.value, quill.root.innerHTML)
+        postArticle(form.title.value, form.author.value, quill.root.innerText)
         popup.classList.remove('active');
     })
 })
 
-  //read
+const token = localStorage.getItem('token')
 
-function read() {
-    let z = 0;
-    article_ref.on('value', snapshot => {
-        let articles = snapshot.val()
-        tableBody.innerHTML = ""
-        for (let article in articles){
-            z++;
-            let tr = `
-                <tr data-id = '${article}'>
-                    <td>`+ z +`</td>
-                    <td>${articles[article].title}</td>
-                    <td>${articles[article].author}</td>
-                    <td>
-                        <button class="edit">Edit</button>
-                        <button class="delete">Delete</button>
-                    </td>
-                </tr>`
-            tableBody.innerHTML += tr;
-        }
-        
-        
-        //update
-
-        let editButtons = document.querySelectorAll('.edit');
-        editButtons.forEach(edit => {
-            edit.addEventListener('click', () => {
-                popup.classList.add('active');
-                let articleId = edit.parentElement.parentElement.dataset.id;
-                article_ref.child(articleId).get().then(
-                    (snapshot => {
-                            form.id.value = snapshot.val().id;
-                            form.title.value = snapshot.val().title;
-                            form.author.value = snapshot.val().author;
-                            quill.root.innerHTML = snapshot.val().content;
-                    })
-                )
-            })
-
-            form.addEventListener('submit', e => {
-                e.preventDefault();
-                let articleId = form.id.value;
-                article_ref.child(articleId).update({
-                    id: form.id.value,
-                    title: form.title.value,
-                    author: form.author.value,
-                    content: quill.root.innerHTML
-                })
-               
-            })
-            popup.classList.remove('active');
+function postArticle(title, author, content) {
+    fetch('https://shyaka-portfolio.herokuapp.com/api/v1/articles', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify({
+            title: title,
+            author: author,
+            content: content
         })
-
-        //delete
-
-        let deleteButtons = document.querySelectorAll('.delete');
-        deleteButtons.forEach(deleteBtn => {
-            deleteBtn.addEventListener('click', () => {
-                let articleId = deleteBtn.parentElement.parentElement.dataset.id;
-                article_ref.child(articleId).remove()
-            })
- 
-        })
-    });
+    })
+    .then(res => res.json())
+    .then(article => {
+        console.log(article)
+    })
+    document.location.reload();
 }
 
-read();
+  //Display article function
+
+function displayArticle() {
+    let z = 0;
+    fetch('https://shyaka-portfolio.herokuapp.com/api/v1/articles', {
+    method: 'GET',
+    headers: {
+        'Content-Type': 'application/json'
+    }
+    })
+    .then(res => res.json())
+    .then(articles => {
+        if(articles.code == 200){
+            articles.data.articles.forEach(article => {
+                z++
+
+                const tr = document.createElement('tr')
+                tr.dataset.id = article._id
+
+                const no = document.createElement('td')  
+                no.textContent = z;
+                
+                const title = document.createElement('td')
+                title.textContent = article.title
+
+                const author = document.createElement('td')
+                author.textContent = article.author
+
+                const td = document.createElement('td')
+
+                const editBtn = document.createElement('button')
+                editBtn.textContent = 'Edit'
+                editBtn.setAttribute('class', 'edit')
+
+                const deleteBtn = document.createElement('button')
+                deleteBtn.textContent = 'Delete'
+                deleteBtn.setAttribute('class', 'delete')
+
+                tableBody.appendChild(tr)
+                tr.appendChild(no)
+                tr.appendChild(title)
+                tr.appendChild(author)
+                tr.appendChild(td)
+                td.appendChild(editBtn)
+                td.appendChild(deleteBtn)
+            });
+        }
+
+    let editBtns = document.querySelectorAll('.edit');
+    editBtns.forEach(edit => {
+        let articleId = edit.parentElement.parentElement.dataset.id;
+        edit.addEventListener('click', () => {
+            popup.classList.add('active');
+            console.log(articleId)
+                fetch('https://shyaka-portfolio.herokuapp.com/api/v1/articles/' + articleId, {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                })
+                .then(res => res.json())
+                .then(article => {
+                            form.title.value = article.data.article.title;
+                            form.author.value = article.data.article.author;
+                            quill.root.innerText = article.data.article.content;
+                })
+
+                form.addEventListener('submit', e => {
+                    e.preventDefault();
+                    fetch('https://shyaka-portfolio.herokuapp.com/api/v1/articles/' + articleId, {
+                        method: 'PUT',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Authorization': `Bearer ${token}`
+                        },
+                        body: JSON.stringify({
+                            author: form.author.value,
+                            content: quill.root.innerText
+                        })
+                    })
+                    .then(res => res.json())
+                    .then(article => {
+                        console.log(article)
+                    })
+                    
+                    document.location.reload();
+                    popup.classList.remove('active');
+                    
+    
+                })
+                
+            })
+
+        })
+
+
+    
+
+    let deleteBtns = document.querySelectorAll('.delete');
+    
+        deleteBtns.forEach(deleteBtn => {
+            deleteBtn.addEventListener('click', () => {
+                console.log('understood');
+                let articleId = deleteBtn.parentElement.parentElement.dataset.id;
+                fetch('https://shyaka-portfolio.herokuapp.com/api/v1/articles/' + articleId, {
+                    method: 'DELETE',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${token}`
+                    },
+                })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data)
+                })
+
+                document.location.reload();
+            })
+
+        })
+
+
+    })
+    
+}
+
+displayArticle();
+
+// Edit Article
+
+
+
 
 //cancel
 

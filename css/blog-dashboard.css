@@ -74,10 +74,12 @@ body {
 }
 
 #crud tbody td button.edit {
+  margin-right: 0.5rem;
   background-color: rgb(158, 89, 39);
 }
 
 #crud tbody td button.delete {
+  margin-left: 0.5rem;
   background-color: rgb(180, 33, 7);
 }
 

@@ -1,52 +1,46 @@
 let blogArticle = document.querySelector('.articles')
-let article_ref = db.ref('articles/')
 
-function displayArticle() {    
-    article_ref.on('value', snapshot => {
-        let articles = snapshot.val()
-        blogArticle.innerHTML = ""
-        for (let article in articles){
-            let tr = `
-            <div class="articles">
-                <div class="article" data-id = '${article}'>
-                    <h1>${articles[article].title}</h1>
-                    <h4>Written by ${articles[article].author}</h4>
-                    <p>${articles[article].content}</p>
-                    <a href="">read more</a>
-                    <form action="">
-                        <input type="text" placeholder="Your name" id="comment-writer">
-                        <input type="text" placeholder="Type your comment" id="comment">
-                        <button id="comment-section">Submit</button>
-                    </form>
-                    <div id="submit-comment"></div>
-                </div>
-            </div>`
+fetch('https://shyaka-portfolio.herokuapp.com/api/v1/articles', {
+    method: 'GET',
+    headers: {
+        'Content-Type': 'application/json'
+    }
+})
+    .then(res => res.json())
+    .then(articles => {
+        if(articles.code == 200){
+            articles.data.articles.forEach(article => {
 
-            blogArticle.innerHTML += tr;
+                const articleId = article._id;
 
+                const column = document.createElement('div')  
+                column.setAttribute('class', 'article')
+                
+                const h1 = document.createElement('h1')
+                h1.textContent = article.title
+
+                const h4 = document.createElement('h4')
+                h4.textContent = article.author
+
+                const p = document.createElement('p')
+                p.textContent = article.content
+
+                const readMore = document.createElement('a')
+                readMore.textContent = 'read more'
+
+                readMore.addEventListener('click', () => {
+                    localStorage.setItem('articleId', articleId)
+                    window.location = "article.html";
+                })
+                               
+
+                blogArticle.appendChild(column)
+                column.appendChild(h1)
+                column.appendChild(h4)
+                column.appendChild(p)
+                column.appendChild(readMore)
+            });
         }
+    })
 
-console.log(blogArticle);
-    }) 
 
-}
-
-displayArticle();
-
-// let submitComment = document.getElementById('submit-comment');
-// let commentWriter = document.getElementById("comment-writer");
-// let commentContent = document.getElementById("comment");
-
-// function saveComment(writer, comment){
-//     article_ref.child(id).child(writer).set({
-//         name: writer,
-//     comment: comment
-//     })
-
-//     alert('comment saved')
-// }
-
-// submitComment.addEventListener('click', e => {
-//     e.preventDefault();
-//     saveComment(commentWriter, commentContent)
-// })
