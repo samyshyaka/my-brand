@@ -30,55 +30,34 @@
         </nav>
     </header>
     <section class="login">
-        <h1>Create Account</h1>        
-        <form action="" id="form" novalidate>
-            <div class="form-control">
-                <label>Username</label>
-                <input type="text" placeholder="Username*" id="username">
-                <i class="fa fa-check-circle"></i>
-                <i class="fa fa-exclamation-circle"></i>
-                <small>Error message</small>
-            </div>
+        <h1>LOGIN</h1>        
+        <form action="" id="login-form" novalidate>
             <div class="form-control">
                 <label>Email</label>
-                <input type="email" placeholder="Email*" id="email">
+                <input type="email" placeholder="Email*" id="login-email">
                 <i class="fa fa-check-circle"></i>
                 <i class="fa fa-exclamation-circle"></i>
                 <small>Error message</small>
             </div>
             <div class="form-control">
                 <label>Password</label>
-                <input type="password" placeholder="Password*" id="password">
+                <input type="password" placeholder="Password*" id="login-password">
                 <i class="fa fa-check-circle"></i>
                 <i class="fa fa-exclamation-circle"></i>
                 <small>Error message</small>
             </div>
-            <div class="form-control">
-                <label>Re-enter password</label>
-                <input type="password" placeholder="Re-enter password*" id="password2">
-                <i class="fa fa-check-circle"></i>
-                <i class="fa fa-exclamation-circle"></i>
-                <small>Error message</small>
+            <div class="remember-me">
+                <input type="checkbox" id="remember-me">
+                <label for="remember-me" class="login-label">remember me</label>
             </div>
-            <button class="submit">Sign Up</button>
-            <p>Already have an account? <a onclick="history.back()">Login</a></p>
+            <button class="submit">Log In</button>
+            <p>Don't have an account? <a href="signup.html">Sign Up</a></p>
         </form>
-        <div id="pswd-validation" class="pswd-info hidden">
-            <ul>
-                <h3 class="text-info">Password must contain</h3>
-                <li id="length" class="invalid"><i class="fa fa-times"></i> At least <strong>6 characters</strong></li>
-                <li id="letter" class="invalid"><i class="fa fa-times"></i> At least <strong>one small letter</strong></li>
-                <li id="capital" class="invalid"><i class="fa fa-times"></i> At least <strong>one capital letter</strong></li>
-                <li id="number" class="invalid"><i class="fa fa-times"></i> At least <strong>one number</strong></li>
-                <li id="special-char" class="invalid"><i class="fa fa-times"></i> At least <strong>one special character</strong></li>
-            </ul>
-        </div>
     </section>
-
     <script defer src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
     <script defer src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
     <script defer src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
     <script defer src="../script/firebase-config.js"></script>
-    <script src="../script/signup.js"></script>
+    <script src="../script/article-login.js"></script>
 </body>
 </html>

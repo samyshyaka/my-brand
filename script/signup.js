@@ -21,7 +21,7 @@ const specialCharValidationIcon = document.querySelector('#special-char i');
 form.addEventListener('submit', e => {
     e.preventDefault();
     checkInputs();
-    register();
+    registerUser(username.value, email.value, password.value)
 })
 
 function checkInputs() {
@@ -138,44 +138,22 @@ function isEmail(emailAddress) {
 
 // user authentication
 
-function register() {
-    firebase.auth().createUserWithEmailAndPassword(email.value, password.value)
-    .then(()=>{
-
-        //Declare user variable
-        var user = firebase.auth().currentUser
-    
-        //add user to the database
-    
-        var database_ref = db.ref();
-    
-        //Create user data
-    
-        var user_data = {
-            email:email.value,
-            username: username.value,
-            last_login: Date.now()
-        }
-    
-        database_ref.child('users/' + user.uid).set(user_data);
-
-        window.location = "login.html";
-    
+function registerUser(username, email, password) {
+    fetch('https://shyaka-portfolio.herokuapp.com/api/v1/users', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            username: username,
+            email: email,
+            password: password
+        })
     })
-    .catch(error => {
-        // var error_code = error.code;
-        var error_message = error.message;
-        if (error_message == "Password should be at least 6 characters"){
-            setErrorFor(password, "password does not meet the requirements");            
-        }
-
-        else if (error_message == "The email address is already in use by another account."){
-            setErrorFor(email, 'Email already in use');
-        }
-        console.log(error_message)
-
+    .then(res => res.json())
+    .then(user => {
+        console.log(user)
     })
-
+    history.back();
 }
-
 
