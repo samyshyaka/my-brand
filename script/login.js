@@ -107,7 +107,11 @@ function logIn() {fetch('https://shyaka-portfolio.herokuapp.com/api/v1/login', {
 })
     .then(res => res.json())
     .then(data => {
-      localStorage.setItem('token', data.accessToken)
-      window.location = "blog-dashboard.html";
+      if (data.code == 200){
+        localStorage.setItem('token', data.accessToken)
+        window.location = "blog-dashboard.html";
+      } 
+      console.log(data)     
     })
 }
+

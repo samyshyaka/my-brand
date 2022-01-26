@@ -54,9 +54,11 @@ function postArticle(title, author, content) {
     })
     .then(res => res.json())
     .then(article => {
+        if(article.code == 201){
+            document.location.reload();
+        }
         console.log(article)
     })
-    document.location.reload();
 }
 
   //Display article function
@@ -141,11 +143,12 @@ function displayArticle() {
                     })
                     .then(res => res.json())
                     .then(article => {
+                        if(article.code == 200){
+                            document.location.reload();
+                            popup.classList.remove('active');
+                        }
                         console.log(article)
                     })
-                    
-                    document.location.reload();
-                    popup.classList.remove('active');
                     
     
                 })
@@ -172,10 +175,11 @@ function displayArticle() {
                 })
                 .then(res => res.json())
                 .then(data => {
+                    if(data.code == 200){
+                        document.location.reload();
+                    }
                     console.log(data)
                 })
-
-                document.location.reload();
             })
 
         })

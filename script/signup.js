@@ -152,8 +152,11 @@ function registerUser(username, email, password) {
     })
     .then(res => res.json())
     .then(user => {
+        if(user.code == 201){
+            history.back()
+        }
         console.log(user)
     })
-    history.back();
+    // history.back();
 }
 

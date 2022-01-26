@@ -3,10 +3,9 @@ const section = document.getElementById('section')
 const articleId = localStorage.getItem('articleId')
 
 const token = localStorage.getItem('token')
-console
 
 function postComment(name, comment) {
-    fetch('https://shyaka-portfolio.herokuapp.com/api/v1/articles/'+articleId+'/comments', {
+    fetch('https://shyaka-portfolio.herokuapp.com/api/v1/articles/'+ articleId +'/comments', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -19,9 +18,11 @@ function postComment(name, comment) {
     })
     .then(res => res.json())
     .then(comment => {
+        if(comment.code == 201){
+            document.location.reload();
+        }
         console.log(comment)
     })
-    document.location.reload();
 }
 
 fetch('https://shyaka-portfolio.herokuapp.com/api/v1/articles/' + articleId, {
