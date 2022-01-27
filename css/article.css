@@ -1,0 +1,152 @@
+header {
+    position: relative;
+}
+
+section {
+    padding: 5rem 10rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.title, .author, .content {
+    text-align: center;
+}
+
+.title, .author {
+    margin-bottom: 1rem;
+}
+
+.content {
+    padding: 2rem 8rem;
+}
+
+.nameInput, .commentInput {
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #fff;
+    padding: 0.5rem 0;
+    margin-bottom: 1rem;
+    width: 15rem;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    margin: 1rem 0;
+}
+
+.nameInput:focus, .commentInput:focus {
+    outline: none;
+}
+
+.sendComment {
+    text-decoration: none;
+    border: none;
+    color: #fff;
+    background-color: rgb(158, 89, 39);
+    padding: 0.5rem 0;
+    width: 5rem;
+}
+
+.cname{
+    margin-top: 1rem;
+    font-size: 13px;
+    margin-left: 1rem;
+}
+
+.comment {
+    margin-left: 1rem;
+}
+
+.login-link {
+    color: rgb(158, 89, 39);
+}
+
+.loginText {
+    font-size: 16px;
+}
+
+.login-link.loggedIn, .loginText.loggedIn{
+    display: none;
+}
+
+.logout-link{
+    display: none;
+    color: rgb(158, 89, 39);
+    cursor: pointer;
+}
+
+.logout-link.loggedIn{
+    display: block;
+    position: absolute;
+    right: 3rem;
+    top: 6rem;
+}
+
+.articleComments {
+    font-size: 20px;
+    margin-left: 3rem;
+    margin-top: 2rem;
+}
+
+.commentSection{
+    display: flex;
+    flex-direction: column;
+    margin-left: 20rem;
+}
+
+
+.commentAndDropdown {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.three-dots:after {
+    cursor: pointer;
+    color: white;
+    content: '\2807';
+    font-size: 20px;
+    padding: 0 5px;
+    margin-left: 1rem;
+  }
+  
+  a {
+    text-decoration: none;
+    color: white;
+    margin-bottom: 0.5rem;
+    margin-left: 0.5rem;
+    margin-right: 0.5;
+    font-size: 15px;
+    cursor: pointer;
+  }
+
+  a:hover {
+      color: rgb(158, 89, 39);
+  }
+
+  a div {
+    padding: 2px;
+  }
+  
+  .dropdown {
+    display: flex;
+    flex-direction: column;
+    margin-left: 2rem;
+    background-color: rgba(0, 0, 0, 0.726);
+    position: absolute;
+    outline: none;
+    opacity: 0;
+    z-index: -1;
+    max-height: 0;
+  }
+  
+  .dropdown-container:focus {
+    outline: none;
+  }
+  
+  .dropdown-container:focus .dropdown {
+    opacity: 1;
+    z-index: 100;
+    max-height: 100vh;
+  }

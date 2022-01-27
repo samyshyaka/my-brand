@@ -3,6 +3,11 @@ const loginForm = document.getElementById("login-form");
 const email = document.getElementById('login-email');
 const loginPassword = document.getElementById("login-password");
 
+// toastr.success("Successfully logged in", "Success", {timeout: 5000})
+// toastr.info("Successfully logged in")
+// toastr.warning("Successfully logged in")
+// toastr.error("Successfully logged in")
+
 loginForm.addEventListener("submit", (e) => {
   e.preventDefault();
   checkLoginInputs();
@@ -111,6 +116,6 @@ function logIn() {fetch('https://shyaka-portfolio.herokuapp.com/api/v1/login', {
         localStorage.setItem('token', data.accessToken)
         window.location = "article.html";
       }
-      console.log(data)
+      toastr.warning(data.message, "Warning!")      
     })
 }

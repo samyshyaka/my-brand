@@ -74,7 +74,8 @@ function displayArticle() {
     .then(res => res.json())
     .then(articles => {
         if(articles.code == 200){
-            articles.data.articles.forEach(article => {
+            const sortedArticles = articles.data.articles.sort((a,b) => new Date(b.date) - new Date(a.date))
+            sortedArticles.forEach(article => {
                 z++
 
                 const tr = document.createElement('tr')

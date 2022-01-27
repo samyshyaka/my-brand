@@ -321,6 +321,7 @@ header {
 .article a {
     font-size: 0.8rem;
     color: rgb(158, 89, 39);
+    cursor: pointer;
 }
 
 .article a:hover {
