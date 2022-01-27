@@ -12,59 +12,66 @@
 
 </head>
 <body>
-    <header>
-        <a href="#" class="logo"><h2>SD</h2></a>
-        <nav class="navbar">
-            <input type="checkbox" id="tab-nav" class="tab-nav">
-            <label for="tab-nav" class="label">
-                <div class="burger"></div>
-                <div class="burger"></div>
-                <div class="burger"></div>
-            </label>
-            <ul class="nav-content">
-                <li><a href="../index.html#home">Home</a></li>
-                <li><a href="../index.html#about">About</a></li>
-                <li><a href="../index.html#services">Services</a></li>
-                <li><a href="../index.html#projects">Projects</a></li>
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="../index.html#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-    
     <div class="wrapper">
-        <button id="logout">Log out</button>
-        <table id="crud">
-            <caption>Articles</caption>
-            <thead>
-                <tr>
-                    <td>No</td>
-                    <td>Title</td>
-                    <td>Author</td>
-                    <td>Actions</td>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>                    
-                </tr>
-            </tbody>
-        </table>
-        <button class="add-article">Add Article</button>
-    </div>
-    <div class="popup">
-        <form action="">
-            <input type="number" placeholder="No" name="id">
-            <input type="text" placeholder="Title" name="title">
-            <input type="text" placeholder="Author" name="author">
-            <div id="text" name="text">
-                <div id="toolbar"></div>
-                <div id="editor"></div>
+        <navbar>
+            <a href="#" class="logo"><h2>SD</h2></a>
+            <div class="nav-profile">
+                <img src="/images/profile.jpg" alt="">
+                <div class="nav-prof-details">
+                    <h3>Samuel Shyaka</h3>
+                    <p>Admin</p>
+                </div>
             </div>
-            <div class="cta">
-                <input type="submit" value="Save" id="save">
-                <input type="submit" value="Cancel" id="cancel">
-            </div>
-        </form>
+            <nav class="navbar">
+                <!-- <input type="checkbox" id="tab-nav" class="tab-nav"> -->
+                <label for="tab-nav" class="label">
+                    <div class="burger"></div>
+                    <div class="burger"></div>
+                    <div class="burger"></div>
+                </label>
+                <ul class="nav-content">
+                    <li><a href="../index.html#home">Home</a></li>
+                    <li><a href="profile.html">Profile</a></li>
+                    <li><a href="blog-dashboard.html">Articles</a></li>
+                    <li><a href="queries.html">Queries</a></li>
+                </ul>
+            </nav>
+        </navbar>
+        
+        <div class="table-wrapper">
+            <button id="logout">Log out</button>
+            <table id="crud">
+                <caption>Articles</caption>
+                <thead>
+                    <tr>
+                        <td>No</td>
+                        <td>Title</td>
+                        <td>Author</td>
+                        <td>Actions</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>                    
+                    </tr>
+                </tbody>
+            </table>
+            <button class="add-article">Add Article</button>
+        </div>
+        <div class="popup">
+            <form action="">
+                <input type="number" placeholder="No" name="id">
+                <input type="text" placeholder="Title" name="title">
+                <input type="text" placeholder="Author" name="author">
+                <div id="text" name="text">
+                    <div id="toolbar"></div>
+                    <div id="editor"></div>
+                </div>
+                <div class="cta">
+                    <input type="submit" value="Save" id="save">
+                    <input type="submit" value="Cancel" id="cancel">
+                </div>
+            </form>
+        </div>
     </div>
 
     <script defer src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
