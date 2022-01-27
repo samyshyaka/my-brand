@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width">
-    <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="../css/blog-dashboard.css">
     <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
     <link href="https://cdn.quilljs.com/1.3.6/quill.bubble.css" rel="stylesheet">
@@ -34,12 +33,15 @@
                     <li><a href="profile.html">Profile</a></li>
                     <li><a href="blog-dashboard.html">Articles</a></li>
                     <li><a href="queries.html">Queries</a></li>
+                    <div class="blogandlogout">
+                        <a class="blog" href="blog.html">Blog</a>
+                        <a class="logout" href="#">Logout</a>
+                    </div>
                 </ul>
             </nav>
         </navbar>
         
         <div class="table-wrapper">
-            <button id="logout">Log out</button>
             <table id="crud">
                 <caption>Articles</caption>
                 <thead>
@@ -51,7 +53,8 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>                    
+                    <tr>
+                        
                     </tr>
                 </tbody>
             </table>
@@ -67,13 +70,13 @@
                     <div id="editor"></div>
                 </div>
                 <div class="cta">
-                    <input type="submit" value="Save" id="save">
+                    <input type="submit" value="Save">
                     <input type="submit" value="Cancel" id="cancel">
                 </div>
             </form>
         </div>
+    
     </div>
-
     <script defer src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
     <script defer src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
     <script defer src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>

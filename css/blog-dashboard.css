@@ -26,13 +26,28 @@ body {
   margin-top: 2rem;
 }
 
-.nav-content li a {
+.nav-content li a, .blog, .logout {
     text-decoration: none;
     color: white;
 }
 
+.blogandlogout{
+  margin-top: 15rem;
+}
+
+.blog {
+  margin-right: 1rem;
+}
+
 navbar {
     padding: 0 2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.navbar {
+  padding-left: 0;
+  margin-left: 0;
 }
 
 .logo h2{
@@ -69,20 +84,6 @@ navbar {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-}
-
-#logout {
-  position: fixed;
-  right: 4.5rem;
-  top: 5rem;
-  color: rgba(255, 255, 255, 0.863);
-  border: none;
-  background-color: rgb(158, 89, 39);
-  padding: 0.5rem 0;
-  width: 5rem;
-  font-family: "OpenSans";
-  font-size: 15px;
-  cursor: pointer;
 }
 
 #crud {

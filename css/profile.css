@@ -1,0 +1,86 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  
+  @font-face {
+    font-family: "OpenSans";
+    src: url(../fonts/PublicSans-VariableFont_wght.ttf);
+  }
+  
+  body {
+    background-color: rgb(37, 36, 36);
+    font-family: "OpenSans";
+    color: rgba(255, 255, 255, 0.863);
+  }
+
+  .wrapper {
+      display: flex;
+      flex-direction: row;
+  }
+
+  .nav-content li {
+    list-style-type: none;
+    margin-top: 2rem;
+  }
+
+  .nav-content li a {
+      text-decoration: none;
+      color: white;
+  }
+
+  navbar {
+      padding: 0 2rem;
+  }
+
+  .logo h2{
+    font-size: 18px;
+    padding: 1rem;
+    text-decoration: none;
+    border-radius: 50%;
+    color: white;
+    margin: 1rem 1rem;
+  }
+
+  .logo {
+    text-decoration: none;
+  }
+
+  .nav-profile {
+    display: flex;
+    flex-direction: row;
+ }
+  
+  .nav-profile img{
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+  }
+
+  .nav-prof-details {
+    margin-left: 0.5rem;
+  }
+
+  .profile-details {
+    padding-left: 15rem;
+  }
+
+  .profile-details img {
+    height: 200px;
+    width: 200px;
+    margin-top: 2rem;
+    border: 10px solid rgb(158, 89, 39);
+    border-radius: 50%;
+    z-index: 1;
+  }
+
+  .profile-details header {
+    text-align: center;
+    margin-bottom: 2rem;
+    padding-left: 10rem;
+  }
+
+  .credential {
+    margin-bottom: 2rem;
+  }
