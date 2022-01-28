@@ -166,7 +166,7 @@ function displayArticle() {
     
         deleteBtns.forEach(deleteBtn => {
             deleteBtn.addEventListener('click', () => {
-                toastr.success("<br /><br /><button type='button' id='confirmationRevertYes' class='btn clear'>Yes</button>",'delete item?',
+                toastr.success("<br /><br /><button type='button' id='confirmationRevertYes' class='btn clear'>Yes</button>",'delete article?',
                     {
                         closeButton: true,
                         allowHtml: true,
