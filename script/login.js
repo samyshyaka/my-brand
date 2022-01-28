@@ -67,7 +67,7 @@ function logIn() {fetch('https://shyaka-portfolio.herokuapp.com/api/v1/login', {
         localStorage.setItem('token', data.accessToken)
         window.location = "blog-dashboard.html";
       } 
-      toastr.warning(data.message, "Warning!")
+      toastr.success("Successfully loggedin", "Success!")
       console.log(data)     
     })
 }

@@ -9,6 +9,7 @@ function postComment(name, comment) {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
+            'mode':'no-cors',
             'Authorization': `Bearer ${token}`
         },
         body: JSON.stringify({
@@ -30,6 +31,7 @@ fetch('https://shyaka-portfolio.herokuapp.com/api/v1/articles/' + articleId, {
     method: 'GET',
     headers: {
         'Content-Type': 'application/json',
+        'mode':'no-cors'
     },
 })
 .then(res => res.json())
@@ -152,6 +154,7 @@ fetch('https://shyaka-portfolio.herokuapp.com/api/v1/articles/' + articleId, {
                         method: 'GET',
                         headers: {
                             'Content-Type': 'application/json',
+                            'mode':'no-cors'
                         },
                     })
                     .then(res => res.json())
@@ -166,6 +169,7 @@ fetch('https://shyaka-portfolio.herokuapp.com/api/v1/articles/' + articleId, {
                             method: 'PUT',
                             headers: {
                                 'Content-Type': 'application/json',
+                                'mode':'no-cors',
                                 'Authorization': `Bearer ${token}`
                             },
                             body: JSON.stringify({
@@ -195,6 +199,7 @@ fetch('https://shyaka-portfolio.herokuapp.com/api/v1/articles/' + articleId, {
                         method: 'DELETE',
                         headers: {
                             'Content-Type': 'application/json',
+                            'mode':'no-cors',
                             'Authorization': `Bearer ${token}`
                         },
                     })
