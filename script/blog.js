@@ -24,7 +24,7 @@ fetch('https://shyaka-portfolio.herokuapp.com/api/v1/articles', {
                 h4.textContent = article.author
 
                 const p = document.createElement('p')
-                p.textContent = article.content
+                p.textContent = article.content.substring(0, 700)
 
                 const readMore = document.createElement('a')
                 readMore.textContent = 'read more'

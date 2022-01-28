@@ -76,6 +76,11 @@ header {
     border-bottom: 4px white solid;
 }
 
+.nav-content li a:hover {
+    padding-bottom: 1.2rem;
+    border-bottom: 4px white solid;
+}
+
 .home {
     display: flex;
     flex-direction: column;

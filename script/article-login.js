@@ -56,49 +56,6 @@ function setLoginSuccessFor(input) {
   loginFormControl.className = "form-control success";
 }
 
-// function signIn() {
-//   var email = document.getElementById("login-email");
-//   var password = document.getElementById("login-password");
-
-//   firebase
-//     .auth()
-//     .signInWithEmailAndPassword(email.value, password.value)
-//     .then(() => {
-//       //Declare user variable
-//       var user = firebase.auth().currentUser;
-
-//       //add user to the database
-
-//       var database_ref = db.ref();
-
-//       //Create user data
-
-//       var user_data = {
-//         last_login: Date.now(),
-//       };
-
-//       database_ref.child("users/" + user.uid).update(user_data);
-
-//       window.location = "blog-dashboard.html";
-
-//     })
-//     .catch((error) => {
-//       var error_code = error.code;
-//       var error_message = error.message;
-//       if (error_message == "The password is invalid or the user does not have a password.")
-//       setLoginErrorFor(loginPassword, "Wrong password");
-//       console.log(error_message);
-//     });
-
-  // firebase.auth().onAuthStateChanged((user) => {
-  //   if (user) {
-  //     window.location = "blog-dashboard.html";
-  //   }
-
-  //   alert("User Logged In!");
-  // });
-// }
-
 
 function logIn() {fetch('https://shyaka-portfolio.herokuapp.com/api/v1/login', {
     method: 'POST',
@@ -116,6 +73,7 @@ function logIn() {fetch('https://shyaka-portfolio.herokuapp.com/api/v1/login', {
         localStorage.setItem('token', data.accessToken)
         window.location = "article.html";
       }
-      toastr.warning(data.message, "Warning!")      
+      toastr.warning(data.message, "Warning!")   
+      console.log(data)   
     })
 }

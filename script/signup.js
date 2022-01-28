@@ -155,6 +155,7 @@ function registerUser(username, email, password) {
         if(user.code == 201){
             history.back()
         }
+        toastr.warning(user.message, "Warning!")
         console.log(user)
     })
     // history.back();

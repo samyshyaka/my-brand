@@ -57,6 +57,7 @@ function postArticle(title, author, content) {
         if(article.code == 201){
             document.location.reload();
         }
+        toastr.warning(article.message, "Warning!")
         console.log(article)
     })
 }
@@ -145,7 +146,7 @@ function displayArticle() {
                     .then(res => res.json())
                     .then(article => {
                         if(article.code == 200){
-                            document.location.reload();
+                            toastr.success("Edited successfully", "Success")
                             popup.classList.remove('active');
                         }
                         console.log(article)
@@ -165,22 +166,31 @@ function displayArticle() {
     
         deleteBtns.forEach(deleteBtn => {
             deleteBtn.addEventListener('click', () => {
-                console.log('understood');
-                let articleId = deleteBtn.parentElement.parentElement.dataset.id;
-                fetch('https://shyaka-portfolio.herokuapp.com/api/v1/articles/' + articleId, {
-                    method: 'DELETE',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Authorization': `Bearer ${token}`
-                    },
-                })
-                .then(res => res.json())
-                .then(data => {
-                    if(data.code == 200){
-                        document.location.reload();
-                    }
-                    console.log(data)
-                })
+                toastr.success("<br /><br /><button type='button' id='confirmationRevertYes' class='btn clear'>Yes</button>",'delete item?',
+                    {
+                        closeButton: false,
+                        allowHtml: true,
+                        onShown: function (toast) {
+                            $("#confirmationRevertYes").click(function(){
+                                let articleId = deleteBtn.parentElement.parentElement.dataset.id;
+                                    fetch('https://shyaka-portfolio.herokuapp.com/api/v1/articles/' + articleId, {
+                                        method: 'DELETE',
+                                        headers: {
+                                            'Content-Type': 'application/json',
+                                            'Authorization': `Bearer ${token}`
+                                        },
+                                    })
+                                    .then(res => res.json())
+                                    .then(data => {
+                                        if(data.code == 200){
+                                            toastr.success("Successfully Deleted", "Success")
+                                        }
+                                        console.log(data)
+                                    })
+                            });
+                            }
+                    });
+                
             })
 
         })
@@ -192,29 +202,7 @@ function displayArticle() {
 
 displayArticle();
 
-// Edit Article
-
-
-
-
-//cancel
-
 cancel.addEventListener('click', () => {
     popup.classList.remove('active');
     form.reset();
 })
-
-// logout
-
-logout.addEventListener('click', e => {
-    logOut()
-})
-
-function logOut() {
-    firebase.auth().signOut().then(() => {
-        window.location = "login.html";
-    }).catch((error) => {
-        message_error = error.message;
-        alert(message_error)
-    })
-}

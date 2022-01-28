@@ -100,20 +100,18 @@ fetch('https://shyaka-portfolio.herokuapp.com/api/v1/articles/' + articleId, {
 
         const sortedComments = article.data.article.comments.sort((a,b) => new Date(a.date) - new Date(b.date))
             
-        sortedComments.forEach(comment => {
+        sortedComments.forEach(commentId => {           
+             
             
-            const id = comment;
-            
-            fetch('https://shyaka-portfolio.herokuapp.com/api/v1/comments/' + id, {
+            fetch('https://shyaka-portfolio.herokuapp.com/api/v1/comments/' + commentId, {
                 method: 'GET',
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    'mode':'no-cors'
                 }
             })
             .then(res => res.json())
             .then(comments => {
-
-                const commentId = comments.data.comment._id
                 
                 const name = document.createElement('h4')
                 name.setAttribute('class', 'cname')
@@ -180,6 +178,7 @@ fetch('https://shyaka-portfolio.herokuapp.com/api/v1/articles/' + articleId, {
                             if(comment.code == 200){
                                 document.location.reload();
                             }
+                            toastr.warning(comment.message, "Warning!")
                             console.log(comment)
                         })
                         
@@ -204,6 +203,7 @@ fetch('https://shyaka-portfolio.herokuapp.com/api/v1/articles/' + articleId, {
                         if(comment.code == 200){
                             document.location.reload();
                         }
+                        toastr.warning(comment.message, "Warning!")
                         console.log(comment)
                     })
                 })
