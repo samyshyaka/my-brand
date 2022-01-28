@@ -168,7 +168,7 @@ function displayArticle() {
             deleteBtn.addEventListener('click', () => {
                 toastr.success("<br /><br /><button type='button' id='confirmationRevertYes' class='btn clear'>Yes</button>",'delete item?',
                     {
-                        closeButton: false,
+                        closeButton: true,
                         allowHtml: true,
                         onShown: function (toast) {
                             $("#confirmationRevertYes").click(function(){
