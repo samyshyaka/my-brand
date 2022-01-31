@@ -40,7 +40,7 @@ addArticle.addEventListener('click', () => {
 const token = localStorage.getItem('token')
 
 function postArticle(title, author, content) {
-    fetch('https://shyaka-portfolio.herokuapp.com/api/v1/articles', {
+    fetch('https://samuel-shyaka-my-brand.herokuapp.com/api/v1/articles', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -66,7 +66,7 @@ function postArticle(title, author, content) {
 
 function displayArticle() {
     let z = 0;
-    fetch('https://shyaka-portfolio.herokuapp.com/api/v1/articles', {
+    fetch('https://samuel-shyaka-my-brand.herokuapp.com/api/v1/articles', {
     method: 'GET',
     headers: {
         'Content-Type': 'application/json'
@@ -117,7 +117,7 @@ function displayArticle() {
         edit.addEventListener('click', () => {
             popup.classList.add('active');
             console.log(articleId)
-                fetch('https://shyaka-portfolio.herokuapp.com/api/v1/articles/' + articleId, {
+                fetch('https://samuel-shyaka-my-brand.herokuapp.com/api/v1/articles/' + articleId, {
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json',
@@ -132,7 +132,7 @@ function displayArticle() {
 
                 form.addEventListener('submit', e => {
                     e.preventDefault();
-                    fetch('https://shyaka-portfolio.herokuapp.com/api/v1/articles/' + articleId, {
+                    fetch('https://samuel-shyaka-my-brand.herokuapp.com/api/v1/articles/' + articleId, {
                         method: 'PUT',
                         headers: {
                             'Content-Type': 'application/json',
@@ -173,7 +173,7 @@ function displayArticle() {
                         onShown: function (toast) {
                             $("#confirmationRevertYes").click(function(){
                                 let articleId = deleteBtn.parentElement.parentElement.dataset.id;
-                                    fetch('https://shyaka-portfolio.herokuapp.com/api/v1/articles/' + articleId, {
+                                    fetch('https://samuel-shyaka-my-brand.herokuapp.com/api/v1/articles/' + articleId, {
                                         method: 'DELETE',
                                         headers: {
                                             'Content-Type': 'application/json',

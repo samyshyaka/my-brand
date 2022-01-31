@@ -5,11 +5,10 @@ const articleId = localStorage.getItem('articleId')
 const token = localStorage.getItem('token')
 
 function postComment(name, comment) {
-    fetch('https://shyaka-portfolio.herokuapp.com/api/v1/articles/'+ articleId +'/comments', {
+    fetch('https://samuel-shyaka-my-brand.herokuapp.com/api/v1/articles/'+ articleId +'/comments', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
-            'mode':'no-cors',
             'Authorization': `Bearer ${token}`
         },
         body: JSON.stringify({
@@ -27,11 +26,10 @@ function postComment(name, comment) {
     })
 }
 
-fetch('https://shyaka-portfolio.herokuapp.com/api/v1/articles/' + articleId, {
+fetch('https://samuel-shyaka-my-brand.herokuapp.com/api/v1/articles/' + articleId, {
     method: 'GET',
     headers: {
-        'Content-Type': 'application/json',
-        'mode':'no-cors'
+        'Content-Type': 'application/json'
     },
 })
 .then(res => res.json())
@@ -105,11 +103,10 @@ fetch('https://shyaka-portfolio.herokuapp.com/api/v1/articles/' + articleId, {
         sortedComments.forEach(commentId => {           
              
             
-            fetch('https://shyaka-portfolio.herokuapp.com/api/v1/comments/' + commentId, {
+            fetch('https://samuel-shyaka-my-brand.herokuapp.com/api/v1/comments/' + commentId, {
                 method: 'GET',
                 headers: {
-                    'Content-Type': 'application/json',
-                    'mode':'no-cors'
+                    'Content-Type': 'application/json'
                 }
             })
             .then(res => res.json())
@@ -150,11 +147,10 @@ fetch('https://shyaka-portfolio.herokuapp.com/api/v1/articles/' + articleId, {
 
                 editComment.addEventListener('click', (e) => {
                     e.preventDefault()
-                    fetch('https://shyaka-portfolio.herokuapp.com/api/v1/comments/' + commentId, {
+                    fetch('https://samuel-shyaka-my-brand.herokuapp.com/api/v1/comments/' + commentId, {
                         method: 'GET',
                         headers: {
                             'Content-Type': 'application/json',
-                            'mode':'no-cors'
                         },
                     })
                     .then(res => res.json())
@@ -165,11 +161,10 @@ fetch('https://shyaka-portfolio.herokuapp.com/api/v1/articles/' + articleId, {
 
                     commentForm.addEventListener('submit', e => {
                         e.preventDefault();
-                        fetch('https://shyaka-portfolio.herokuapp.com/api/v1/comments/' + commentId, {
+                        fetch('https://samuel-shyaka-my-brand.herokuapp.com/api/v1/comments/' + commentId, {
                             method: 'PUT',
                             headers: {
                                 'Content-Type': 'application/json',
-                                'mode':'no-cors',
                                 'Authorization': `Bearer ${token}`
                             },
                             body: JSON.stringify({
@@ -195,11 +190,10 @@ fetch('https://shyaka-portfolio.herokuapp.com/api/v1/articles/' + articleId, {
 
                 deleteComment.addEventListener('click', (e) => {
                     e.preventDefault()
-                    fetch('https://shyaka-portfolio.herokuapp.com/api/v1/comments/' + commentId, {
+                    fetch('https://samuel-shyaka-my-brand.herokuapp.com/api/v1/comments/' + commentId, {
                         method: 'DELETE',
                         headers: {
                             'Content-Type': 'application/json',
-                            'mode':'no-cors',
                             'Authorization': `Bearer ${token}`
                         },
                     })

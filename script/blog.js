@@ -1,6 +1,6 @@
 let blogArticle = document.querySelector('.articles')
 
-fetch('https://shyaka-portfolio.herokuapp.com/api/v1/articles', {
+fetch('https://samuel-shyaka-my-brand.herokuapp.com/api/v1/articles', {
     method: 'GET',
     headers: {
         'Content-Type': 'application/json'

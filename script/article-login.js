@@ -57,7 +57,7 @@ function setLoginSuccessFor(input) {
 }
 
 
-function logIn() {fetch('https://shyaka-portfolio.herokuapp.com/api/v1/login', {
+function logIn() {fetch('https://samuel-shyaka-my-brand.herokuapp.com/api/v1/login', {
     method: 'POST',
     headers: {
         'Content-Type': 'application/json'
