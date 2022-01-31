@@ -139,7 +139,7 @@ function isEmail(emailAddress) {
 // user authentication
 
 function registerUser(username, email, password) {
-    fetch('https://shyaka-portfolio.herokuapp.com/api/v1/users', {
+    fetch('https://samuel-shyaka-my-brand.herokuapp.com/api/v1/users', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

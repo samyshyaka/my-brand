@@ -111,6 +111,8 @@ fetch('https://samuel-shyaka-my-brand.herokuapp.com/api/v1/articles/' + articleI
             })
             .then(res => res.json())
             .then(comments => {
+
+                console.log(comments.data.comment.name)
                 
                 const name = document.createElement('h4')
                 name.setAttribute('class', 'cname')
